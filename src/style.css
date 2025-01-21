@@ -4,7 +4,8 @@
   --dialogBgColor: #fff;
   --dialogColor: #2c3e50;
   --reTheme: 30px;
-  --loadBg: #ffffff radial-gradient(circle at center, #f0f0f0 0%, #ffffff 80%) no-repeat;
+  --loadBg: #ffffff radial-gradient(circle at center, #f0f0f0 0%, #ffffff 80%)
+    no-repeat;
   --loadText: #2b2b2b;
 }
 
@@ -13,7 +14,8 @@
   --bgColor: #000;
   --dialogBgColor: #232323;
   --dialogColor: #fff;
-  --loadBg: #0a0916 radial-gradient(circle at center, #151333 0%, #0a0916 80%) no-repeat;
+  --loadBg: #0a0916 radial-gradient(circle at center, #151333 0%, #0a0916 80%)
+    no-repeat;
   --loadText: #fff;
 }
 

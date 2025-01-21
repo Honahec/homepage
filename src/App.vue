@@ -1,17 +1,36 @@
 <template>
+  <SpeedInsights />
   <div>
     <LoadingAnimation :isLoading="isLoading" />
-    
-    <div class="bgBox" v-motion :initial="{ opacity: 0, y: 25 }" :enter="{ opacity: 1, y: 0 }" :duration="1000">
-      <img src="https://misskey.s3.cn-north-1.jdcloud-oss.com/image/a7ca728f-40de-4480-bfd8-e97b7b697e40.webp" alt="">
+
+    <div
+      class="bgBox"
+      v-motion
+      :initial="{ opacity: 0, y: 25 }"
+      :enter="{ opacity: 1, y: 0 }"
+      :duration="1000"
+    >
+      <img
+        src="https://misskey.s3.cn-north-1.jdcloud-oss.com/image/a7ca728f-40de-4480-bfd8-e97b7b697e40.webp"
+        alt=""
+      />
     </div>
 
     <BackgroundGrid :rows="gridRows" :cols="gridCols" />
 
-    <div class="main" v-motion :initial="{ opacity: 0 }" :enter="{ opacity: 1 }" :duration="1000">
+    <div
+      class="main"
+      v-motion
+      :initial="{ opacity: 0 }"
+      :enter="{ opacity: 1 }"
+      :duration="1000"
+    >
       <div class="info">
         <div class="header">
-          <img src="https://misskey.s3.cn-north-1.jdcloud-oss.com/image/3e96beeb-66b5-455a-a5d2-b757a3d961c1.jpeg" alt="">
+          <img
+            src="https://misskey.s3.cn-north-1.jdcloud-oss.com/image/3e96beeb-66b5-455a-a5d2-b757a3d961c1.jpeg"
+            alt=""
+          />
         </div>
 
         <div class="infoText">
@@ -22,13 +41,25 @@
 
       <div class="typewriter">
         <i class="iconfont icon-quotesUp1"></i>
-        <VueTyped :strings="typingTexts" :startDelay="300" :typeSpeed="100" :backSpeed="30" :loop="true" :showCursor="true">
+        <VueTyped
+          :strings="typingTexts"
+          :startDelay="300"
+          :typeSpeed="100"
+          :backSpeed="30"
+          :loop="true"
+          :showCursor="true"
+        >
         </VueTyped>
         <i class="iconfont icon-quotesUp"></i>
       </div>
 
       <div class="btns">
-        <a v-for="link in socialLinks" :key="link.animate" :href="link.href" target="_blank">
+        <a
+          v-for="link in socialLinks"
+          :key="link.animate"
+          :href="link.href"
+          target="_blank"
+        >
           <vs-button type="gradient" :color="link.color" animation-type="scale">
             <i :class="`iconfont ${link.icon}`"></i>
             <template #animate>
@@ -37,11 +68,14 @@
           </vs-button>
         </a>
 
-        <vs-button class="lastBtn" color="#457B9D" animation-type="scale" @click="showAbout = true">
+        <vs-button
+          class="lastBtn"
+          color="#457B9D"
+          animation-type="scale"
+          @click="showAbout = true"
+        >
           <i class="iconfont icon-guanyu"></i>
-          <template #animate>
-            关于
-          </template>
+          <template #animate> 关于 </template>
         </vs-button>
       </div>
     </div>
@@ -51,19 +85,20 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
-import LoadingAnimation from './components/LoadingAnimation.vue';
-import BackgroundGrid from './components/BackgroundGrid.vue';
-import AboutDialog from './components/AboutDialog.vue';
-import { ThemeManager } from './utils/theme';
-import { typingTexts, socialLinks, siteConfig } from './config';
+import { ref, onMounted } from "vue";
+import LoadingAnimation from "./components/LoadingAnimation.vue";
+import BackgroundGrid from "./components/BackgroundGrid.vue";
+import AboutDialog from "./components/AboutDialog.vue";
+import { ThemeManager } from "./utils/theme";
+import { typingTexts, socialLinks, siteConfig } from "./config";
+import { SpeedInsights } from "@vercel/speed-insights/vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     LoadingAnimation,
     BackgroundGrid,
-    AboutDialog
+    AboutDialog,
   },
   setup() {
     const isLoading = ref(true);
@@ -74,9 +109,11 @@ export default {
 
     onMounted(() => {
       ThemeManager.applyTheme(theme.value);
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-        ThemeManager.applyTheme(theme.value);
-      });
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", () => {
+          ThemeManager.applyTheme(theme.value);
+        });
 
       setTimeout(() => {
         isLoading.value = false;
@@ -91,10 +128,10 @@ export default {
       gridCols,
       typingTexts,
       socialLinks,
-      siteConfig
+      siteConfig,
     };
-  }
-}
+  },
+};
 </script>
 
 <style lang="less">
