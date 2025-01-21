@@ -10,13 +10,16 @@ importers:
     dependencies:
       '@vercel/speed-insights':
         specifier: ^1.1.0
-        version: 1.1.0(vue@3.5.12)
+        version: 1.1.0(vue-router@4.5.0(vue@3.5.12))(vue@3.5.12)
       '@vueuse/motion':
         specifier: ^2.2.5
         version: 2.2.6(rollup@4.24.3)(vue@3.5.12)
       vue:
         specifier: ^3.4.37
         version: 3.5.12
+      vue-router:
+        specifier: ^4.5.0
+        version: 4.5.0(vue@3.5.12)
       vue3-typed-js:
         specifier: ^0.0.1
         version: 0.0.1
@@ -458,6 +461,9 @@ packages:
 
   '@vue/compiler-ssr@3.5.12':
     resolution: {integrity: sha512-eLwc7v6bfGBSM7wZOGPmRavSWzNFF6+PdRhE+VFJhNCgHiF8AM7ccoqcv5kBXA2eWUfigD7byekvf/JsOfKvPA==}
+
+  '@vue/devtools-api@6.6.4':
+    resolution: {integrity: sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==}
 
   '@vue/reactivity@3.5.12':
     resolution: {integrity: sha512-UzaN3Da7xnJXdz4Okb/BGbAaomRHc3RdoWqTzlvd9+WBR5m3J39J1fGcHes7U3za0ruYn/iYy/a1euhMEHvTAg==}
@@ -1125,6 +1131,11 @@ packages:
       '@vue/composition-api':
         optional: true
 
+  vue-router@4.5.0:
+    resolution: {integrity: sha512-HDuk+PuH5monfNuY+ct49mNmkCRK4xJAV9Ts4z9UFc4rzdDnxQLyCMGGc8pKhZhHTVzfanpNwB/lwqevcBwI4w==}
+    peerDependencies:
+      vue: ^3.2.0
+
   vue3-typed-js@0.0.1:
     resolution: {integrity: sha512-uRmG2orwRPh6/kIYF/XNjGpg57eAbHohSxKvUE1RjoHdgHg3dxhxwLrUK1u1JUCYQXgZbMHbi0ZQHms0MRkdig==}
 
@@ -1509,9 +1520,10 @@ snapshots:
 
   '@types/web-bluetooth@0.0.20': {}
 
-  '@vercel/speed-insights@1.1.0(vue@3.5.12)':
+  '@vercel/speed-insights@1.1.0(vue-router@4.5.0(vue@3.5.12))(vue@3.5.12)':
     optionalDependencies:
       vue: 3.5.12
+      vue-router: 4.5.0(vue@3.5.12)
 
   '@vitejs/plugin-vue@5.1.4(vite@5.4.10(less@4.2.0))(vue@3.5.12)':
     dependencies:
@@ -1547,6 +1559,8 @@ snapshots:
     dependencies:
       '@vue/compiler-dom': 3.5.12
       '@vue/shared': 3.5.12
+
+  '@vue/devtools-api@6.6.4': {}
 
   '@vue/reactivity@3.5.12':
     dependencies:
@@ -2333,6 +2347,11 @@ snapshots:
 
   vue-demi@0.14.10(vue@3.5.12):
     dependencies:
+      vue: 3.5.12
+
+  vue-router@4.5.0(vue@3.5.12):
+    dependencies:
+      '@vue/devtools-api': 6.6.4
       vue: 3.5.12
 
   vue3-typed-js@0.0.1:
