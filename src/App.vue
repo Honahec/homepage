@@ -99,6 +99,7 @@ export default {
     LoadingAnimation,
     BackgroundGrid,
     AboutDialog,
+    SpeedInsights,
   },
   setup() {
     const isLoading = ref(true);
