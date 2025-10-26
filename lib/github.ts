@@ -6,7 +6,7 @@ const headers: HeadersInit = {
 };
 
 if (process.env.GITHUB_TOKEN) {
-  headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
+  headers['Authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
 }
 
 export async function getGitHubUser(username: string): Promise<GitHubUser | null> {
@@ -44,7 +44,6 @@ export async function getGitHubRepos(username: string, limit: number = 6): Promi
 
 export async function getGitHubEvents(username: string, limit: number = 100): Promise<GitHubEvent[]> {
   try {
-    // GitHub API 限制每页最多 100 个，我们获取多页
     const pages = Math.ceil(limit / 100);
     const allEvents: GitHubEvent[] = [];
     
