@@ -81,8 +81,8 @@ export default async function Home() {
       {/* Footer */}
       <footer className="py-12 text-center text-gray-500 border-t border-white/5">
         <div className="container mx-auto px-6">
-          <p className="flex items-center justify-center gap-2">
-            Copyright © 2021-{new Date().getFullYear()} Honahec
+          <p className="flex items-center justify-center gap-2 text-sm">
+            <a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备2024119517号-1</a>
           </p>
           <p className="mt-2 text-sm">
             Powered by Next.js & GitHub API

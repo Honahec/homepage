@@ -17,22 +17,30 @@ export default function ActivityChart({ events }: ActivityChartProps) {
   // 生成过去 30 天的数据
   const generateChartData = () => {
     const days = 30;
-    const today = new Date();
+    const now = new Date();
+    // 使用本地时区的今天日期
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     const data: { date: string; count: number; label: string }[] = [];
 
     for (let i = days - 1; i >= 0; i--) {
       const date = new Date(today);
-      date.setDate(date.getDate() - i);
-      date.setHours(0, 0, 0, 0);
+      date.setDate(today.getDate() - i);
 
-      const dateStr = date.toISOString().split("T")[0];
+      // 使用本地时区格式化日期字符串，避免UTC转换问题
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const dateStr = `${year}-${month}-${day}`;
       const label = date.getDate().toString();
 
       // 统计这一天的事件数
       const count = events.filter((event) => {
         const eventDate = new Date(event.created_at);
-        eventDate.setHours(0, 0, 0, 0);
-        return eventDate.toISOString().split("T")[0] === dateStr;
+        const eventYear = eventDate.getFullYear();
+        const eventMonth = String(eventDate.getMonth() + 1).padStart(2, '0');
+        const eventDay = String(eventDate.getDate()).padStart(2, '0');
+        const eventDateStr = `${eventYear}-${eventMonth}-${eventDay}`;
+        return eventDateStr === dateStr;
       }).length;
 
       data.push({ date: dateStr, count, label });
@@ -224,18 +232,19 @@ export default function ActivityChart({ events }: ActivityChartProps) {
               ))}
 
               {/* X轴标签 (每5天显示一次) */}
-              {points.map((point, i) => {
-                if (i % 5 === 0 || i === points.length - 1) {
+              {data.map((d, i) => {
+                if (i % 5 === 0 || i === data.length - 1) {
+                  const x = padding.left + (i / (data.length - 1)) * chartWidth;
                   return (
                     <text
                       key={i}
-                      x={point.x}
+                      x={x}
                       y={height - 10}
                       textAnchor="middle"
                       fill="rgba(255,255,255,0.5)"
                       fontSize="12"
                     >
-                      {point.label}
+                      {d.label}
                     </text>
                   );
                 }
