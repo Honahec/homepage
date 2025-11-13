@@ -145,14 +145,3 @@ code[data-line-numbers-max-digits='2'] > [data-line]::before {
 code[data-line-numbers-max-digits='3'] > [data-line]::before {
   width: 3rem;
 }
-
-@theme inline {
-  @keyframes grid {
-  0% {
-    transform: translateY(-50%);
-    }
-  100% {
-    transform: translateY(0);
-    }
-  }
-}
