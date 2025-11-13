@@ -6,6 +6,7 @@ export const DATA = {
   initials: 'Honahec',
   url: 'https://honahec.cc/',
   location: 'Shanghai, China',
+  favicon: 'https://image.honahec.cc/favicon-blue.png',
   description:
     'An undergrad student at ShanghaiTech University. Full-stack developer.',
   summary:
@@ -54,7 +55,6 @@ export const DATA = {
       school: 'ShanghaiTech University',
       href: 'https://shanghaitech.edu.cn/',
       degree: 'Undergraduate in Computer Science',
-      logoUrl: '/ShanghaiTech.png',
       start: '2025',
       end: '2029?',
     },
@@ -62,7 +62,6 @@ export const DATA = {
       school: 'Qingdao Academy',
       href: 'https://qdzx.net/',
       degree: 'High School',
-      logoUrl: '/QingdaoAcademy.png',
       start: '2019',
       end: '2025',
     },

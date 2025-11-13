@@ -10,8 +10,6 @@ import Link from 'next/link';
 import React from 'react';
 
 interface ResumeCardProps {
-  logoUrl: string;
-  altText: string;
   title: string;
   subtitle?: string;
   href?: string;
@@ -20,8 +18,6 @@ interface ResumeCardProps {
   description?: string;
 }
 export const ResumeCard = ({
-  logoUrl,
-  altText,
   title,
   subtitle,
   href,
@@ -45,16 +41,6 @@ export const ResumeCard = ({
       onClick={handleClick}
     >
       <Card className='flex'>
-        <div className='flex-none'>
-          <Avatar className='border size-12 m-auto bg-muted-background dark:bg-foreground'>
-            <AvatarImage
-              src={logoUrl}
-              alt={altText}
-              className='object-contain'
-            />
-            <AvatarFallback>{altText[0]}</AvatarFallback>
-          </Avatar>
-        </div>
         <div className='flex-grow ml-4 items-center flex-col group'>
           <CardHeader>
             <div className='flex items-center justify-between gap-x-2 text-base'>
