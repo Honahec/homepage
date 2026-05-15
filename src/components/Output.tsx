@@ -11,6 +11,7 @@ import History from "./commands/History";
 import Projects from "./commands/Projects";
 import Socials from "./commands/Socials";
 import Themes from "./commands/Themes";
+import Blog from "./commands/Blog";
 import { OutputContainer, UsageDiv } from "./styles/Output.styled";
 import { termContext } from "./Terminal";
 import { useContext } from "react";
@@ -43,11 +44,12 @@ const Output: React.FC<Props> = ({ index, cmd }) => {
           help: <Help />,
           history: <History />,
           projects: <Projects />,
-          pwd: <GeneralOutput>/home/satnaing</GeneralOutput>,
+          pwd: <GeneralOutput>/home/honahec</GeneralOutput>,
           socials: <Socials />,
           themes: <Themes />,
           welcome: <Welcome />,
           whoami: <GeneralOutput>visitor</GeneralOutput>,
+          blog: <Blog />,
         }[cmd]
       }
     </OutputContainer>

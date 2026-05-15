@@ -40,11 +40,12 @@ const Projects: React.FC = () => {
     <div data-testid="projects">
       <ProjectsIntro>
         “Talk is cheap. Show me the code”? I got you. <br />
-        Here are some of my projects you shouldn't misss
+        Here are some of my projects you shouldn't miss.
       </ProjectsIntro>
-      {projects.map(({ id, title, desc }) => (
+      {projects.map(({ id, title, desc, category }) => (
         <ProjectContainer key={id}>
           <ProjectTitle>{`${id}. ${title}`}</ProjectTitle>
+          <ProjectDesc>{category}</ProjectDesc>
           <ProjectDesc>{desc}</ProjectDesc>
         </ProjectContainer>
       ))}
@@ -56,27 +57,24 @@ const Projects: React.FC = () => {
 const projects = [
   {
     id: 1,
-    title: "Sat Naing's Blog",
-    desc: "My personal blog where I can write down my thoughts and experiences.",
-    url: "https://satnaing.dev/blog/",
+    title: "QA guatian",
+    desc: "A full-stack online Q&A community platform.",
+    category: "Vue.js, Python",
+    url: "https://qaguatian.com/",
   },
   {
     id: 2,
-    title: "Haru Fashion",
-    desc: "An ecommerce web application where users can browse various products and make purchases.",
-    url: "https://haru-fashion.vercel.app/",
+    title: "Minicpu",
+    desc: "A RISC-V processor that supports the RV32I basic instruction set.",
+    category: "SpinalHDL",
+    url: "https://github.com/honahec/minicpu",
   },
   {
     id: 3,
-    title: "Haru API",
-    desc: "A RESTful API developed for the Haru fashion ecommerce project.",
-    url: "https://satnaing.github.io/haru-api/",
-  },
-  {
-    id: 4,
-    title: "AstroPaper Blog Theme",
-    desc: "A minimal, accessible and SEO-friendly Astro blog theme.",
-    url: "https://astro-paper.pages.dev/",
+    title: "PintOS",
+    desc: "Implemented advanced scheduling, system calls, and user program support in an educational operating system.",
+    category: "C, x86 Architecture",
+    url: "https://github.com/honahec/pintos",
   },
 ];
 
