@@ -54,7 +54,15 @@ const Projects: React.FC = () => {
   );
 };
 
-const projects = [
+type ProjectDetail = {
+  id: number;
+  title: string;
+  desc: string;
+  category: string;
+  url: string;
+};
+
+const projects: ProjectDetail[] = [
   {
     id: 1,
     title: "QA guatian",
@@ -75,6 +83,13 @@ const projects = [
     desc: "Implemented advanced scheduling, system calls, and user program support in an educational operating system.",
     category: "C, x86 Architecture",
     url: "https://github.com/honahec/pintos",
+  },
+  {
+    id: 4,
+    title: "TechPie",
+    desc: "A one-stop campus platform.",
+    category: "Dart, Swift",
+    url: "https://github.com/honahec/techpie-flutter",
   },
 ];
 
